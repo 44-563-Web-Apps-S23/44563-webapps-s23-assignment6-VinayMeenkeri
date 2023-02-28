@@ -1,51 +1,78 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Creating a JavaScript file.</title>
-    </head>
- 
+
+<head>
+    <title>Creating a JavaScript file.</title>
+</head>
+
 <body>
 
-<h2>Painter entry Vinay Meenkeri</h2>
+    <h2>Painter entry Vinay Meenkeri</h2>
 
-<div class="container">
-<form>
-    <label for="form_painter">The hidden painter name </label>
-    <input type ="password" class="form-control" id="password" name="form_painter" min=10 max=50 step=2 value=Monet> <br>
-</div>
+    <div class="container">
+        <form>
+            <label for="form_painter">The hidden painter name </label>
+            <input type="password" id="password" name="form_painter" min=10 max=50 step=2 value="Monet"> <br>
+    </div>
 
-<div>
-    <label for="form_check">Guess the painter </label>
-    <input type ="text" class="form-control" id="check" name="form_check" min=10 max=50 step=2> <br>
+    <div>
+        <label for="form_check">Guess the painter </label>
+        <input type="text" class="form-control" id="check" name="form_check" min=10 max=50 step=2> <br>
 
-    <input type="button" onclick="checkPainter()" value="Check the Guess">
-</div>
-</form>
+        <input type="button" onclick="checkPainter()" value="Check the Guess">
+    </div>
+    </form>
 
 
-<p id="result">Result</p>
+    <p id="result">Result</p>
 
-<script> 
-var good=0
-var oops=0
+    <script>
+        var good = 0
+        var oops = 0
 
-function checkPainter (){
-    console.log("Getting form values")
-    password = document.getElementById("password").value
-    check = document.getElementById("check").value
-    confirmed = confirm("Are these the values? "+password+" and "+check)
-    
-    out = document.getElementById("result")
-    if(password == check){
-        alert("You got it right")
-        good=good+1
-    } else {
-        oops=oops+1
-        alert("Sorry")
-    }
-    out.innerHTML ="Right count: " +good+" Wrong count: "+oops
-}
-</script>
+        function checkPainter() {
+            console.log("Getting form values")
+            password = document.getElementById("password").value
+            check = document.getElementById("check").value
+            confirmed = confirm("Are these the values? " + password + " and " + check)
+
+            out = document.getElementById("result")
+            if (password == check) {
+                alert("You got it right")
+                good = good + 1
+            } else {
+                oops = oops + 1
+                alert("Sorry")
+            }
+            out.innerHTML = "Right count: " + good + " Wrong count: " + oops
+        }
+    </script>
+
+    <div class="container">
+        <img src="Moneyplant.jpg" id="picture" width="100" height="100" onclick="selectImage()">
+    </div>
+    <script>
+        var useImage = 1
+        var img = document.getElementById("picture")
+        function selectImage() {
+            switch (useImage) {
+                case 1:
+                    img.src = "Moneyplant.jpg"
+                    useImage++
+                    break
+                case 2:
+                    img.src = "Epimedium.JPG"
+                    useImage++
+                    break
+                case 3:
+                    img.src = "Euphorbia.jpg"
+                    useImage = 1
+                    break
+                default:
+            }
+        }
+    </script>
 
 </body>
-</html> 
+
+</html>
